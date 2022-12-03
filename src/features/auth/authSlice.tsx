@@ -197,11 +197,9 @@ builder.addCase(getLishMentByCode.fulfilled, (state, action) => {
      state.lishMentDetail = action.payload?.data;
 })
 
-builder.addCase(putLishMent.pending, (state, action) => {
-     state.isLoading = true;
-})
+
 builder.addCase(putLishMent.fulfilled, (state, action) => {
-state.isLoading = false;
+
 const data = state.lishMent?.map(item => {
      if(item.id == action.payload?.data.id) {
           return action.payload?.data

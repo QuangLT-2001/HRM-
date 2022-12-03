@@ -12,7 +12,7 @@ const TTTCDetail = () => {
      const params = useParams();
      const {id} = params;
      let dispatch = useAppDispatch()
-
+     let navigate = useNavigate()
      const [state, setState] = useState<any>({
           orgId: "",
           nameLishMent: "",
@@ -49,8 +49,6 @@ const TTTCDetail = () => {
 
 useEffect(() => {
     if(!SelectIsLoading) {
-     console.log("Select", SelectLishMentDetail);
-
      setState(SelectLishMentDetail)
     }
 }, [SelectIsLoading])
@@ -124,7 +122,19 @@ const handleClickUpdate = ():any => {
           }))
 
 
-
+     setState({
+          orgId: "",
+          nameLishMent: "",
+          MST: "",
+          flagActive: false,
+          nameAbb: "",
+          typeLishMent: "",
+          address: "",
+          userContact: "",
+          emailContact:"",
+          telContact: ""
+     })
+     navigate("/quan-tri/thiet-lap-to-chuc/danh-sach-to-chuc/")
      }else {
           alert("Mời bạn nhập đầy đủ thông tin")
      }
